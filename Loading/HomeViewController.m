@@ -8,15 +8,19 @@
 
 #import "HomeViewController.h"
 #import "DateTableViewCell.h"
-
+#import "TypeViewController.h"
 
 #define HEXCOLOR(hex) [UIColor colorWithRed:((float)((hex & 0xFF0000) >> 16)) / 255.0 green:((float)((hex & 0xFF00) >> 8)) / 255.0 blue:((float)(hex & 0xFF)) / 255.0 alpha:1]
+
+static CGFloat buttonEdge = 35;
 
 @interface HomeViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
     UITableView * _dateTableView;
     
     NSArray * _colors;
+    
+    UIView * _tableView;
 }
 @end
 
@@ -27,6 +31,8 @@
     [self initProperties];
     
     [self createUI];
+    
+    [self createNavigationUI];
 }
 
 - (void)initProperties
@@ -43,6 +49,58 @@
     _dateTableView.rowHeight = _dateTableView.frame.size.height/6;
     [_dateTableView registerNib:[UINib nibWithNibName:@"DateTableViewCell" bundle:nil] forCellReuseIdentifier:@"DateTableViewCell.h"];
     [self.view addSubview:_dateTableView];
+}
+
+-(void)createNavigationUI
+{
+    /* navigationBat widgets */
+    UIView * view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 64)];
+    view.backgroundColor = [UIColor colorWithRed:70/255. green:130/255. blue:180/255. alpha:1.];
+    [self.view addSubview:view];
+    
+    
+    UIButton * moreBtn = [[UIButton alloc] initWithFrame:CGRectMake(10,(64 - buttonEdge)/2 + 7, buttonEdge, buttonEdge)];
+    [moreBtn addTarget:self action:@selector(moreButtonTouched:) forControlEvents:UIControlEventTouchUpInside];
+    [moreBtn setImage:[UIImage imageNamed:@"more"] forState:UIControlStateNormal];
+    moreBtn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
+    [self.view addSubview:moreBtn];
+    
+    UIButton * addBtn = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width - 10 - buttonEdge, (64 - buttonEdge)/2 + 7, buttonEdge, buttonEdge)];
+    addBtn.imageEdgeInsets = UIEdgeInsetsMake(5, 5, 5, 5);
+    [addBtn addTarget:self action:@selector(addButtonTouched:) forControlEvents:UIControlEventTouchUpInside];
+    [addBtn setImage:[UIImage imageNamed:@"add"] forState:UIControlStateNormal];
+    [self.view addSubview:addBtn];
+    
+    UIImageView * YImage = [[UIImageView alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2 - 22, 15, 20, 33)];
+    YImage.image = [UIImage imageNamed:@"Y"];
+    [self.view addSubview:YImage];
+    
+    UIImageView * NImage = [[UIImageView alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2 + 2 , 15, 20, 33)];
+    NImage.image = [UIImage imageNamed:@"N"];
+    [self.view addSubview:NImage];
+    
+    /* 侧边栏 */
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(-self.view.frame.size.width/1.5, 64, self.view.frame.size.width/1.5, self.view.frame.size.height - 64)];
+    _tableView.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:_tableView];
+}
+
+- (void)moreButtonTouched:(UIButton *)btn
+{
+    CGRect rect = _tableView.frame;
+    rect.origin.x = -(rect.origin.x + self.view.frame.size.width/1.5);
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        _tableView.frame = rect;
+    } completion:^(BOOL finished) {
+        [btn setImage:[UIImage imageNamed:rect.origin.x == 0?@"back":@"more"] forState:UIControlStateNormal];
+    }];
+}
+
+- (void)addButtonTouched:(UIButton *)btn
+{
+    TypeViewController * vc = [[TypeViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark UITableView Delegate

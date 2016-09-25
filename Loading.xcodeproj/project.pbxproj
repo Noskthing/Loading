@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF844BFE1D98250F00D37AAB /* TypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF844BFD1D98250F00D37AAB /* TypeViewController.m */; };
 		FFCC2B491D96C32B00519E14 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FFCC2B481D96C32B00519E14 /* main.m */; };
 		FFCC2B4C1D96C32B00519E14 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FFCC2B4B1D96C32B00519E14 /* AppDelegate.m */; };
 		FFCC2B4F1D96C32B00519E14 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFCC2B4E1D96C32B00519E14 /* ViewController.m */; };
@@ -40,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FF844BFC1D98250F00D37AAB /* TypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypeViewController.h; sourceTree = "<group>"; };
+		FF844BFD1D98250F00D37AAB /* TypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TypeViewController.m; sourceTree = "<group>"; };
 		FFCC2B441D96C32B00519E14 /* Loading.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Loading.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFCC2B481D96C32B00519E14 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FFCC2B4A1D96C32B00519E14 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -91,6 +94,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FF844BFA1D9824A600D37AAB /* Add */ = {
+			isa = PBXGroup;
+			children = (
+				FF844BFB1D9824B600D37AAB /* Controller */,
+			);
+			name = Add;
+			sourceTree = "<group>";
+		};
+		FF844BFB1D9824B600D37AAB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FF844BFC1D98250F00D37AAB /* TypeViewController.h */,
+				FF844BFD1D98250F00D37AAB /* TypeViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		FFCC2B3B1D96C32B00519E14 = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +138,7 @@
 				FFCC2B4B1D96C32B00519E14 /* AppDelegate.m */,
 				FFCC2B4D1D96C32B00519E14 /* ViewController.h */,
 				FFCC2B4E1D96C32B00519E14 /* ViewController.m */,
+				FF844BFA1D9824A600D37AAB /* Add */,
 				FFCC2B881D96CE1B00519E14 /* Home */,
 				FFCC2B801D96C6FE00519E14 /* LBWNavigationController.h */,
 				FFCC2B811D96C6FE00519E14 /* LBWNavigationController.m */,
@@ -316,6 +337,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF844BFE1D98250F00D37AAB /* TypeViewController.m in Sources */,
 				FFCC2B4F1D96C32B00519E14 /* ViewController.m in Sources */,
 				FFCC2B821D96C6FE00519E14 /* LBWNavigationController.m in Sources */,
 				FFCC2B4C1D96C32B00519E14 /* AppDelegate.m in Sources */,
@@ -550,6 +572,7 @@
 				FFCC2B761D96C32C00519E14 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FFCC2B771D96C32C00519E14 /* Build configuration list for PBXNativeTarget "LoadingTests" */ = {
 			isa = XCConfigurationList;
@@ -558,6 +581,7 @@
 				FFCC2B791D96C32C00519E14 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FFCC2B7A1D96C32C00519E14 /* Build configuration list for PBXNativeTarget "LoadingUITests" */ = {
 			isa = XCConfigurationList;
@@ -566,6 +590,7 @@
 				FFCC2B7C1D96C32C00519E14 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
