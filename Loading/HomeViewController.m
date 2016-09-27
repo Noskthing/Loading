@@ -9,10 +9,12 @@
 #import "HomeViewController.h"
 #import "DateTableViewCell.h"
 #import "TypeViewController.h"
+#import "MoreTableView.h"
+#import "DataBaseManager.h"
 
 #define HEXCOLOR(hex) [UIColor colorWithRed:((float)((hex & 0xFF0000) >> 16)) / 255.0 green:((float)((hex & 0xFF00) >> 8)) / 255.0 blue:((float)(hex & 0xFF)) / 255.0 alpha:1]
 
-static CGFloat buttonEdge = 35;
+static CGFloat buttonEdge = 50;
 
 @interface HomeViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
@@ -33,6 +35,9 @@ static CGFloat buttonEdge = 35;
     [self createUI];
     
     [self createNavigationUI];
+    
+    [[DataBaseManager sharedManager] saveCountDownEntity];
+    [[DataBaseManager sharedManager] test];
 }
 
 - (void)initProperties
@@ -51,11 +56,11 @@ static CGFloat buttonEdge = 35;
     [self.view addSubview:_dateTableView];
 }
 
--(void)createNavigationUI
+- (void)createNavigationUI
 {
     /* navigationBat widgets */
     UIView * view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 64)];
-    view.backgroundColor = [UIColor colorWithRed:70/255. green:130/255. blue:180/255. alpha:1.];
+    view.backgroundColor = RGBA(82, 115, 133, 1);
     [self.view addSubview:view];
     
     
@@ -71,18 +76,18 @@ static CGFloat buttonEdge = 35;
     [addBtn setImage:[UIImage imageNamed:@"add"] forState:UIControlStateNormal];
     [self.view addSubview:addBtn];
     
-    UIImageView * YImage = [[UIImageView alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2 - 22, 15, 20, 33)];
-    YImage.image = [UIImage imageNamed:@"Y"];
-    [self.view addSubview:YImage];
-    
-    UIImageView * NImage = [[UIImageView alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2 + 2 , 15, 20, 33)];
-    NImage.image = [UIImage imageNamed:@"N"];
-    [self.view addSubview:NImage];
+    UILabel * title = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2 - 50, 10, 100, 44)];
+    title.textAlignment = NSTextAlignmentCenter;
+    title.font = [UIFont fontWithName:@"Heavy" size:30];
+    title.text = @"YN";
+    title.textColor = [UIColor whiteColor];
+    [view addSubview:title];
     
     /* 侧边栏 */
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(-self.view.frame.size.width/1.5, 64, self.view.frame.size.width/1.5, self.view.frame.size.height - 64)];
-    _tableView.backgroundColor = [UIColor whiteColor];
+    _tableView = [[MoreTableView alloc] initWithFrame:CGRectMake(-self.view.frame.size.width/1.5, 64, self.view.frame.size.width/1.5, self.view.frame.size.height - 64)];
+    _tableView.backgroundColor = RGBA(214, 230, 181, 1);
     [self.view addSubview:_tableView];
+    
 }
 
 - (void)moreButtonTouched:(UIButton *)btn
@@ -90,7 +95,7 @@ static CGFloat buttonEdge = 35;
     CGRect rect = _tableView.frame;
     rect.origin.x = -(rect.origin.x + self.view.frame.size.width/1.5);
     
-    [UIView animateWithDuration:0.5 animations:^{
+    [UIView animateWithDuration:0.25 animations:^{
         _tableView.frame = rect;
     } completion:^(BOOL finished) {
         [btn setImage:[UIImage imageNamed:rect.origin.x == 0?@"back":@"more"] forState:UIControlStateNormal];
@@ -114,8 +119,8 @@ static CGFloat buttonEdge = 35;
 
     DateTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"DateTableViewCell.h" forIndexPath:indexPath];
     
-    UIColor * color = _colors[indexPath.row];
-    cell.backgroundColor = color;
+//    UIColor * color = _colors[indexPath.row];
+    cell.backgroundColor = indexPath.row%2 == 0?RGBA(115, 132, 122, 1):RGBA(67, 90, 82, 1);
     
     return cell;
     

@@ -1,4 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15D21" minimumToolsVersion="Automatic">
+    <entity name="AnniversaryModel" representedClassName="AnniversaryModel" syncable="YES">
+        <relationship name="event" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EventEntity" inverseName="anniversary" inverseEntity="EventEntity" syncable="YES"/>
+    </entity>
+    <entity name="CountDownModel" representedClassName="CountDownModel" syncable="YES">
+        <relationship name="event" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EventEntity" inverseName="countDown" inverseEntity="EventEntity" syncable="YES"/>
+    </entity>
+    <entity name="EventEntity" representedClassName="EventEntity" syncable="YES">
+        <attribute name="eventDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="eventName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="eventNotes" optional="YES" attributeType="Binary" syncable="YES"/>
+        <relationship name="anniversary" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AnniversaryModel" inverseName="event" inverseEntity="AnniversaryModel" syncable="YES"/>
+        <relationship name="countDown" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CountDownModel" inverseName="event" inverseEntity="CountDownModel" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="CountDownModel" positionX="-63" positionY="-18" width="128" height="58"/>
+        <element name="AnniversaryModel" positionX="-54" positionY="9" width="128" height="60"/>
+        <element name="EventEntity" positionX="-36" positionY="27" width="128" height="120"/>
+    </elements>
 </model>
