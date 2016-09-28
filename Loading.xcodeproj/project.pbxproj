@@ -62,7 +62,7 @@
 		6DB994B91D9A10E6000C239C /* StyleManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StyleManager.m; sourceTree = "<group>"; };
 		6DB994BB1D9A1B3C000C239C /* DataBaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataBaseManager.h; sourceTree = "<group>"; };
 		6DB994BC1D9A1B3C000C239C /* DataBaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataBaseManager.m; sourceTree = "<group>"; };
-		6DB994C11D9A3D13000C239C /* LBWPrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBWPrefixHeader.pch; sourceTree = "<group>"; };
+		6DB994C11D9A3D13000C239C /* LBWPrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LBWPrefixHeader.pch; path = ../LBWPrefixHeader.pch; sourceTree = "<group>"; };
 		6DB994C31D9A68F3000C239C /* EventTextFiled.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventTextFiled.h; sourceTree = "<group>"; };
 		6DB994C41D9A68F3000C239C /* EventTextFiled.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventTextFiled.m; sourceTree = "<group>"; };
 		6DB994C61D9A77BB000C239C /* AnniversaryModel+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AnniversaryModel+CoreDataProperties.h"; sourceTree = "<group>"; };
@@ -160,7 +160,6 @@
 		FFCC2B3B1D96C32B00519E14 = {
 			isa = PBXGroup;
 			children = (
-				6DB994C11D9A3D13000C239C /* LBWPrefixHeader.pch */,
 				FFCC2B461D96C32B00519E14 /* Loading */,
 				FFCC2B631D96C32C00519E14 /* LoadingTests */,
 				FFCC2B6E1D96C32C00519E14 /* LoadingUITests */,
@@ -181,6 +180,7 @@
 		FFCC2B461D96C32B00519E14 /* Loading */ = {
 			isa = PBXGroup;
 			children = (
+				6DB994C11D9A3D13000C239C /* LBWPrefixHeader.pch */,
 				FFCC2B4A1D96C32B00519E14 /* AppDelegate.h */,
 				FFCC2B4B1D96C32B00519E14 /* AppDelegate.m */,
 				FFCC2B4D1D96C32B00519E14 /* ViewController.h */,
