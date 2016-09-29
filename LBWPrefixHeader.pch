@@ -28,4 +28,10 @@
 #define YSCLog(...)
 #endif
 
+#define Width self.view.frame.size.width
+#define Height self.view.frame.size.height
+
+#define SelfWidth self.frame.size.width
+#define SelfHeight self.frame.size.height
+
 #endif

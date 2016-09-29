@@ -49,7 +49,7 @@
     MoreTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"MoreTableView" forIndexPath:indexPath];
     
     cell.title.text = _titles[indexPath.row];
-    cell.backgroundColor = RGBA(99, 100, 66, 1);
+//    cell.backgroundColor = RGBA(148, 213, 205, 1);
     
     return cell;
 }

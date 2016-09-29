@@ -82,13 +82,13 @@ static CGFloat buttonEdge = 50;
     [backBtn addTarget:self action:@selector(backButtonTouched:) forControlEvents:UIControlEventTouchUpInside];
     [backBtn setImage:[UIImage imageNamed:@"navBack"] forState:UIControlStateNormal];
     backBtn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
-    [self.view addSubview:backBtn];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
     
     UIButton * saveBtn = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width - 10 - buttonEdge, (64 - buttonEdge)/2 + 7, buttonEdge, buttonEdge)];
     saveBtn.imageEdgeInsets = UIEdgeInsetsMake(5, 5, 5, 5);
     [saveBtn addTarget:self action:@selector(saveButtonTouched:) forControlEvents:UIControlEventTouchUpInside];
     [saveBtn setImage:[UIImage imageNamed:@"save"] forState:UIControlStateNormal];
-    [self.view addSubview:saveBtn];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:saveBtn];
 }
 
 - (void)backButtonTouched:(UIButton *)btn

@@ -10,4 +10,7 @@
 
 @interface DateTableViewCell : UITableViewCell
 
+
+//- (void)setTextColor:(UIColor *)textColor andBackGroungColor:(UIColor *)color;
+
 @end
