@@ -22,11 +22,15 @@
     
     HomeViewController * homeVC = [[HomeViewController alloc] init];
     LBWNavigationController * nav = [[LBWNavigationController alloc] initWithRootViewController:homeVC];
-    nav.navigationBar.backgroundColor = [UIColor redColor];
     
     self.window.rootViewController = nav;
     
-     
+    //设置NavigationBar背景颜色
+    [[UINavigationBar appearance] setBarTintColor:RGBA(0, 225, 225, 1)];
+    //@{}代表Dictionary
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    
+    
 //    [[UIApplication sharedApplication] setStatusBarHidden:YES];
     return YES;
 }

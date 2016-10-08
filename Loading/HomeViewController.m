@@ -47,7 +47,7 @@ static CGFloat buttonEdge = 50;
 
 - (void)createUI
 {
-    UIView * segBg = [[UIView alloc] initWithFrame:CGRectMake(0, 64, Width, 50)];
+    UIView * segBg = [[UIView alloc] initWithFrame:CGRectMake(0, 0, Width, 50)];
     segBg.backgroundColor = RGBA(0, 225, 225, 1);
     [self.view addSubview:segBg];
     
@@ -57,7 +57,7 @@ static CGFloat buttonEdge = 50;
     seg.selectedSegmentIndex = 0;
     [segBg addSubview:seg];
     
-    _dateTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64 + segBg.frame.size.height, Width, Height - segBg.frame.size.height - 64)];
+    _dateTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, segBg.frame.size.height, Width, Height - segBg.frame.size.height - 64)];
     _dateTableView.backgroundColor = [UIColor blackColor];
     _dateTableView.delegate = self;
     _dateTableView.dataSource = self;
@@ -78,9 +78,9 @@ static CGFloat buttonEdge = 50;
     self.navigationItem.titleView =label;
     
     /* navigationBat widgets */
-    UIView * view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 64)];
-    view.backgroundColor = RGBA(82, 115, 133, 1);
-    [self.view addSubview:view];
+//    UIView * view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 64)];
+//    view.backgroundColor = RGBA(82, 115, 133, 1);
+//    [self.view addSubview:view];
     
     
     UIButton * moreBtn = [[UIButton alloc] initWithFrame:CGRectMake(10,(64 - buttonEdge)/2 + 7, buttonEdge, buttonEdge)];
@@ -95,12 +95,12 @@ static CGFloat buttonEdge = 50;
     [addBtn setImage:[UIImage imageNamed:@"add"] forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:addBtn];
     
-    UILabel * title = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2 - 50, 10, 100, 44)];
-    title.textAlignment = NSTextAlignmentCenter;
-    title.font = [UIFont fontWithName:@"Heavy" size:30];
-    title.text = @"YN";
-    title.textColor = [UIColor whiteColor];
-    [view addSubview:title];
+//    UILabel * title = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2 - 50, 10, 100, 44)];
+//    title.textAlignment = NSTextAlignmentCenter;
+//    title.font = [UIFont fontWithName:@"Heavy" size:30];
+//    title.text = @"YN";
+//    title.textColor = [UIColor whiteColor];
+//    [view addSubview:title];
     
     /* 侧边栏 */
     _tableView = [[MoreTableView alloc] initWithFrame:CGRectMake(-self.view.frame.size.width/1.5, 64, self.view.frame.size.width/1.5, self.view.frame.size.height - 64)];
